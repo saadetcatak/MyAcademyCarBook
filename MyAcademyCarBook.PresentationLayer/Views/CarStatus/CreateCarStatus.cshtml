@@ -1,0 +1,14 @@
+﻿@model MyAcademyCarBook.EntityLayer.Concrete.CarStatus
+@{
+    ViewData["Title"] = "CreateCarStatus";
+    Layout = "~/Views/Adminlayout/Index.cshtml";
+}
+
+<h1>Yeni Araç Durumu Ekleme</h1>
+<form method="post">
+    <label>Araba Durumu</label>
+    <input type="text" asp-for="CarStatusName" class="form-control" style="border:1px solid #2222" />
+    <br />
+    <button class="btn btn-outline-primary">Durumu Ekle</button>
+</form>
+

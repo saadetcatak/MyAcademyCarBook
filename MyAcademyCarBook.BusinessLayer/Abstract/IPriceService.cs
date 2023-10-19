@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
-    internal interface IPriceService:IGenericService<Price>
+    public interface IPriceService:IGenericService<Price>
     {
+        List<Price> TGetPricesWithCars();
     }
 }

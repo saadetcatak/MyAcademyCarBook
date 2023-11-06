@@ -23,5 +23,11 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         var values=_carService.TGetAllCarsWithBrands();
             return View(values);
         }
+
+        public IActionResult CarList()
+        {
+            var values=_carService.TGetAllCarsWithBrands();
+            return View(values);
+        }
     }
 }

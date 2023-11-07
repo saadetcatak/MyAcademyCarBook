@@ -19,15 +19,20 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             return View(values);
         }
         public IActionResult Index2()
-        { 
-        var values=_carService.TGetAllCarsWithBrands();
+        {
+            var values = _carService.TGetAllCarsWithBrands();
             return View(values);
         }
 
         public IActionResult CarList()
         {
-            var values=_carService.TGetAllCarsWithBrands();
+            var values = _carService.TGetAllCarsWithBrands();
             return View(values);
+        }
+
+        public IActionResult CarDetail(int id)
+        { 
+            return View();
         }
     }
 }

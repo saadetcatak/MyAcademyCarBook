@@ -9,7 +9,7 @@
             <div class="col-md-8 blog-content">
                 <p class="lead">@ViewBag.v .</p>
                 <div class="pt-5">
-                    @await Component.InvokeAsync("_CarDetailCommentComponentPartial")
+                    @await Component.InvokeAsync("_CarDetailCommentComponentPartial",new {id=ViewBag.i})
                     @await Component.InvokeAsync("_CarDetailLeaveCommentComponentPartial")
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     </form>
                 </div>
                 @await Component.InvokeAsync("_CarDetailCategoryComponentPartial")
-                @await Component.InvokeAsync("_CarDetailAboutAuthorComponentPartial")
+                @await Component.InvokeAsync("_CarDetailAboutAuthorComponentPartial", new {id=ViewBag.i})
                 <div class="sidebar-box">
                     <h3 class="text-black">Paragraph</h3>
                     <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>

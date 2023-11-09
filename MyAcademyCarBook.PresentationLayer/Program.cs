@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CarBookContext>();
+
 builder.Services.AddScoped<IBrandDal,EfBrandDal>();
 builder.Services.AddScoped<IBrandService,BrandManager>();
 
@@ -33,6 +34,9 @@ builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
 
 builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();
 builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
+
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+builder.Services.AddScoped<ICommentService, CommentManager>();
 
 
 

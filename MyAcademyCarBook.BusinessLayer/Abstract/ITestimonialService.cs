@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
-    public interface ICarService:IGenericService<Car>
+    public interface ITestimonialService:IGenericService<Testimonial>
     {
-        List<Car> TGetAllCarsWithBrands();
-        IEnumerable<Car> TGetCarByFilters(string Model, string GeatType, int Year, string BrandName);
     }
 }

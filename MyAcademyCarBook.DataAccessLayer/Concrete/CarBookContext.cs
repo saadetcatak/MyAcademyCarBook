@@ -26,7 +26,11 @@ namespace MyAcademyCarBook.DataAccessLayer.Concrete
         public DbSet<HowItWorksStep> HowItWorksSteps { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<Comment> Comments { get; set; }
-
+        public static IQueryable<Car> Car { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set;}
+        public DbSet<Contact> Contacts{ get; set;}
+        public DbSet<Message> Messages{ get; set;}
+      
     }
     
 }

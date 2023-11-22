@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyAcademyCarBook.DataAccessLayer.Abstract
 {
-   public interface ICarDal:IGenericDal<Car>
+    public interface IContactDal:IGenericDal<Contact>
     {
-        List<Car> GetAllCarsWithBrands();
-        IEnumerable<Car> GetCarByFilters(string Model, string GeatType, int Year, string BrandName);
     }
 }

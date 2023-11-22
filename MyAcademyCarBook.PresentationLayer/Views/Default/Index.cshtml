@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+<!doctype html>
+<html lang="en">
+
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <div class="site-wrap" id="home-section">
+
+
+
+
+
+        @await Component.InvokeAsync("_CarByFiltersComponentPartial")
+
+        @await Component.InvokeAsync("_BeginYourTripHereComponentPartial")
+
+
+
+        @await Component.InvokeAsync("_OurOfferCarComponentPartial")
+
+        @await Component.InvokeAsync("_OurServicesComponentPartial")
+
+
+   
+        @await Component.InvokeAsync("_HowItWorksStepComponentPartial")
+
+        @await Component.InvokeAsync("_CustomerTestimonialComponentPartial")
+   
+    </div>   
+  </body>
+</html>
+

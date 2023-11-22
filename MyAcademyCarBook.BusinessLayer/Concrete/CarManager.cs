@@ -33,6 +33,11 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
            return _carDal.GetByID(id);
         }
 
+        public IEnumerable<Car> TGetCarByFilters(string Model, string GeatType, int Year, string BrandName)
+        {
+            return _carDal.GetCarByFilters(Model,GeatType,Year,BrandName);
+        }
+
         public List<Car> TGetListAll()
         {
             return _carDal.GetListAll();

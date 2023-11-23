@@ -1,0 +1,24 @@
+﻿@model List<Contact>
+
+@*<div class="col-md-4">*@
+<div class="col-lg-4 ml-auto">
+    
+    @foreach (var item in Model)
+    {
+       
+        
+            <div class="bg-white p-3 p-md-5">
+                <h3 class="text-black mb-4">İletişim Bilgileri</h3>
+                <ul class="list-unstyled footer-link">
+                    <li class="d-block mb-3">
+                        <span class="d-block text-black">Adres:</span>
+                        <span>@item.Address</span>
+                    </li>
+                    <li class="d-block mb-3"><span class="d-block text-black">Telefon:</span><span>+@item.Phone</span></li>
+                    <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>@item.Email</span></li>
+               
+                </ul>
+            </div>
+        
+    }
+</div>

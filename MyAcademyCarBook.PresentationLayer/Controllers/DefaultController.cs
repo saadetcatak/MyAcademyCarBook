@@ -100,7 +100,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             ViewData["geatType"] = car.GeatType;
 
 
-            var values = _carService.TGetAllCarsWithBrands();
+            var values = _carService.TGetListAll();
 
 
 

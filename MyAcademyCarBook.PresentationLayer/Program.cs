@@ -54,7 +54,8 @@ builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<ILocationDal, EfLocationDal>();
 builder.Services.AddScoped<ILocationService, LocationManager>();
 
-
+builder.Services.AddScoped<ITeamDal, EfTeamDal>();
+builder.Services.AddScoped<ITeamService, TeamManager>();
 
 
 

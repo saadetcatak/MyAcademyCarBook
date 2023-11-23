@@ -1,0 +1,78 @@
+﻿@model List<Car>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/carrent-master/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs">
+                    <span class="mr-2"><a href="/Default/Index/">Ana Sayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>Arabalar <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Aracınızı Kiralayın</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+
+
+                <div class="col-md-4">
+                    <div class="car-wrap rounded ftco-animate">
+                        <div class="img rounded d-flex align-items-end" style="background-image: url(@item.ImageUrl);">
+                        </div>
+                        <div class="text">
+                            <h5 class="mr-5"><a href="/Cars/CarDetails/@item.CarID">  @item.CarName</a></h5>
+                            <h5 class="mr-5">Yakıt: @item.GasType</h5>
+                            <h5 class="mr-5"> Model Yılı: @item.Year</h5>  <h5 class="mr-5">Vites: @item.GeatType</h5>
+                            <div class="d-flex mb-3">
+
+                                <p class="price ml-auto">@item.RentPrice ₺ <span>/Gün</span></p>
+                            </div>
+                            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Hemen Kirala</a> <a asp-action="CarDetails" asp-controller="Cars" asp-route-id="@item.CarID" class="btn btn-secondary py-2 ml-1">Detaylar</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (!Model.Any())
+            {
+                <body>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            // Model null ise SweetAlert2 ile uyarı göster
+
+                            Swal.fire({
+                                title: 'Hata',
+                                text: 'Aradığınız kriterlere uygun araç bulunamadı',
+                                icon: 'error',
+                                showCancelButton: true,
+                                confirmButtonText: 'Tekrar Ara',
+                                cancelButtonText: 'İptal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = "/Default/Index"; // Yönlendirilecek URL'yi buraya yazın
+                                }
+                            });
+
+                        });
+                    </script>
+                </body>
+            }
+        </div>
+
+    </div>
+</section>

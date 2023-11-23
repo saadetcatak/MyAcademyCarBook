@@ -1,0 +1,128 @@
+﻿@model Message
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<div class="col-lg-8 mb-5">
+    <form asp-action="SendMessage"  method="post" onsubmit="return validateForm()">
+        <div class="form-group row">
+            <div class="col-md-6 mb-4 mb-lg-0">
+                <input type="text" class="form-control" placeholder="Ad Soyad" asp-for="Name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Konu" asp-for="Subject">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Email Adresi" asp-for="Email">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-12">
+                <textarea asp-for="MessageContent" class="form-control" placeholder="Mesajınızı yazınız..." cols="32" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary py-3 px-5">Gönder</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    function validateForm() {
+        var nameValue = document.getElementById('Name').value;
+        var emailValue = document.getElementById('Email').value;
+        var subjectValue = document.getElementById('Subject').value;
+        var messageValue = document.getElementById('MessageContent').value;
+
+        if (nameValue.trim() === '' || emailValue.trim() === '' || subjectValue.trim() === '' || messageValue.trim() === '') {
+            // Gerekli alanlar doldurulmamışsa SweetAlert gösterme
+            Swal.fire({
+                title: 'Hata',
+                text: 'Lütfen tüm gerekli alanları doldurun!',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonText: 'Tamam',
+            });
+
+            return false; // Formun gönderilmesini engelle
+        }
+
+        // Gerekli alanlar doldurulmuşsa SweetAlert gösterme
+        Swal.fire({
+            title: 'Tebrikler',
+            text: 'Mesajınız Gönderildi! Size en kısa sürede cevap verilecektir.',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Contact/Index"; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+
+        return true; // Formu gönder
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function validateForm() {
+        var nameValue = document.getElementById('Name').value;
+        var emailValue = document.getElementById('Email').value;
+        var subjectValue = document.getElementById('Subject').value;
+        var messageValue = document.getElementById('MessageBody').value;
+
+        if (nameValue.trim() === '' || emailValue.trim() === '' || subjectValue.trim() === '' || messageValue.trim() === '') {
+            // Gerekli alanlar doldurulmamışsa SweetAlert gösterme
+            Swal.fire({
+                title: 'Hata',
+                text: 'Lütfen tüm gerekli alanları doldurun!',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonText: 'Tamam',
+            });
+
+            return false; // Formun gönderilmesini engelle
+        }
+
+        // Gerekli alanlar doldurulmuşsa SweetAlert gösterme
+        Swal.fire({
+            title: 'Tebrikler',
+            text: 'Mesajınız Gönderildi! Size en kısa sürede cevap verilecektir.',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Contact/Index"; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+
+        return true; // Formu gönder
+    }
+</script>

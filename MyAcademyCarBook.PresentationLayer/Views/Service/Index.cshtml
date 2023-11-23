@@ -1,8 +1,10 @@
 ﻿@model List<MyAcademyCarBook.EntityLayer.Concrete.Service>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/UILayout/Index.cshtml";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
+@await Component.InvokeAsync("_CoverUILayoutComponentPartial")
+
 
 <div class="site-section">
     <div class="container">

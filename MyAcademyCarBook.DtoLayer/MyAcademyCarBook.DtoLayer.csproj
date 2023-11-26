@@ -6,13 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="BrandDto\" />
-    <Folder Include="CarDto\" />
-    <Folder Include="CarCategoryDto\" />
-    <Folder Include="CarStatusDto\" />
-    <Folder Include="LocationDto\" />
-    <Folder Include="PriceDto\" />
-  </ItemGroup>
-
 </Project>

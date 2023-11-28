@@ -2,6 +2,7 @@
 using MyAcademyCarBook.DataAccessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Concrete;
 using MyAcademyCarBook.DataAccessLayer.Repositories;
+using MyAcademyCarBook.DtoLayer.CarCategoryDto;
 using MyAcademyCarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -20,29 +21,25 @@ namespace MyAcademyCarBook.DataAccessLayer.EntityFramework
             return values;
         }
 
-        public IEnumerable<Car> GetCarByFilters(string Model, string GeatType, int Year, string BrandName)
+        public List<CarCategoryDto> GetCategoryCount()
         {
             var context = new CarBookContext();
-            IQueryable<Car> query = context.Cars;
+            var categories = context.CarsCategories.Select(x => new CarCategoryDto
+            {
+                CategoryName = x.CategoryName,
+                Count = context.Cars.Count(y => y.CarCategoryID == x.CarCategoryID)
+            }).ToList();
 
-            if(Model!=null)
-            {
-                query=query.Where(x=>x.Model.ToLower().Contains(Model.ToLower()));
-            }
-            if (GeatType!= null)
-            {
-                query = query.Where(x => x.GeatType.Contains(GeatType));
-            }
-            if (Year != null)
-            {
-                query = query.Where(x => x.Year>=Year);
-            }
-            if (BrandName != null)
-            {
-                query = query.Where(x => x.Brand.BrandName.ToLower().Contains(BrandName.ToLower()));
-            }
-
-            return query.ToList();
+            return categories;
         }
+
+        public List<Car> GetLast5Cars()
+        {
+            var context=new CarBookContext();
+            var values=context.Cars.OrderByDescending(x=>x.CarID).Take(5).ToList(); 
+            return values;
+        }
+
+       
     }
 }

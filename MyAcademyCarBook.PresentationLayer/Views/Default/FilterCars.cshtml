@@ -1,4 +1,4 @@
-﻿@model Car
+﻿@model CarViewModel
 
 <div class="ftco-blocks-cover-1">
     <div class="ftco-cover-1 overlay" style="background-image: url('/carrent-master/images/hero_1.jpg')">
@@ -7,15 +7,15 @@
                 <div class="col-lg-5">
                     <div class="feature-car-rent-box-1">
                         <h3>Araç Kirala</h3>
-                        <form asp-action="RentCar" asp-controller="Default" class="request-form ftco-animate" method="post">
-                            <span>Araç Türü</span>
-                            @Html.DropDownListFor(x=>x.Model,(List<SelectListItem>)ViewBag.cars, "Araç Seçiniz", new{@class="form-control", required = "required", value= "ViewData['model']" })
+                        <form asp-action="FilterCars" asp-controller="Default" class="request-form ftco-animate" method="post">
+                            <span>Araç Markası</span>
+                            @Html.DropDownListFor(x => x.Brand, (IEnumerable<SelectListItem>)ViewBag.cars, "Araç Markası Seçiniz", new{@class="form-control", required = "required", value= "ViewData['model']" })
                             <hr />
                             <span>Yakıt Türü</span>
                             @Html.DropDownListFor(x => x.GasType, (IEnumerable<SelectListItem>)ViewBag.gas, "Yakıt Türü Seçiniz", new { @class = "form-control", required = "required", value = "ViewData['gasType']" })
                             <hr />
                             <span>Vites</span>
-                            @Html.DropDownListFor(x=>x.GeatType,(List<SelectListItem>)ViewBag.geat,"Vites Türü Seçiniz", new{@class="form-control", required = "required", value= "ViewData['geatType']" })
+                            @Html.DropDownListFor(x => x.GeatType, (IEnumerable<SelectListItem>)ViewBag.geat,"Vites Türü Seçiniz", new{@class="form-control", required = "required", value= "ViewData['geatType']" })
                             <hr />
                             <div class="d-flex align-items-center bg-light p-3">
                                 <span>Yıl</span>

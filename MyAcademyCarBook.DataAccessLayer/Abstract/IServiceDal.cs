@@ -9,5 +9,6 @@ namespace MyAcademyCarBook.DataAccessLayer.Abstract
 {
  public interface IServiceDal:IGenericDal<Service>
     {
+        List<Service> GetLast3Services();
     }
 }

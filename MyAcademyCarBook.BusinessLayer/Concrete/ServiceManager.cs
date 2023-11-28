@@ -28,6 +28,11 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
             return _serviceDal.GetByID(id);
         }
 
+        public List<Service> TGetLast3Services()
+        {
+           return _serviceDal.GetLast3Services();
+        }
+
         public List<Service> TGetListAll()
         {
             return _serviceDal.GetListAll();

@@ -1,5 +1,6 @@
 ﻿using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.DataAccessLayer.Abstract;
+using MyAcademyCarBook.DtoLayer.CarCategoryDto;
 using MyAcademyCarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,14 @@ namespace MyAcademyCarBook.BusinessLayer.Concrete
            return _carDal.GetByID(id);
         }
 
-        public IEnumerable<Car> TGetCarByFilters(string Model, string GeatType, int Year, string BrandName)
+        public List<CarCategoryDto> TGetCategoryCount()
         {
-            return _carDal.GetCarByFilters(Model,GeatType,Year,BrandName);
+           return _carDal.GetCategoryCount();
+        }
+
+        public List<Car> TGetLast5Cars()
+        {
+            return _carDal.GetLast5Cars();
         }
 
         public List<Car> TGetListAll()

@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyAcademyCarBook.DataAccessLayer\MyAcademyCarBook.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\MyAcademyCarBook.DtoLayer\MyAcademyCarBook.DtoLayer.csproj" />
     <ProjectReference Include="..\MyAcademyCarBook.EntityLayer\MyAcademyCarBook.EntityLayer.csproj" />
   </ItemGroup>
 

@@ -50,10 +50,10 @@
                 confirmButtonText: 'Tamam',
             });
 
-            return false; // Formun gönderilmesini engelle
+            return false; 
         }
 
-        // Gerekli alanlar doldurulmuşsa SweetAlert gösterme
+        
         Swal.fire({
             title: 'Tebrikler',
             text: 'Mesajınız Gönderildi! Size en kısa sürede cevap verilecektir.',
@@ -62,11 +62,11 @@
             confirmButtonText: 'Tamam',
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Contact/Index"; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Contact/Index"; 
             }
         });
 
-        return true; // Formu gönder
+        return true; 
     }
 </script>
 
@@ -90,39 +90,3 @@
 
 
 
-<script>
-    function validateForm() {
-        var nameValue = document.getElementById('Name').value;
-        var emailValue = document.getElementById('Email').value;
-        var subjectValue = document.getElementById('Subject').value;
-        var messageValue = document.getElementById('MessageBody').value;
-
-        if (nameValue.trim() === '' || emailValue.trim() === '' || subjectValue.trim() === '' || messageValue.trim() === '') {
-            // Gerekli alanlar doldurulmamışsa SweetAlert gösterme
-            Swal.fire({
-                title: 'Hata',
-                text: 'Lütfen tüm gerekli alanları doldurun!',
-                icon: 'error',
-                showCancelButton: false,
-                confirmButtonText: 'Tamam',
-            });
-
-            return false; // Formun gönderilmesini engelle
-        }
-
-        // Gerekli alanlar doldurulmuşsa SweetAlert gösterme
-        Swal.fire({
-            title: 'Tebrikler',
-            text: 'Mesajınız Gönderildi! Size en kısa sürede cevap verilecektir.',
-            icon: 'success',
-            showCancelButton: false,
-            confirmButtonText: 'Tamam',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "/Contact/Index"; // Yönlendirilecek URL'yi buraya yazın
-            }
-        });
-
-        return true; // Formu gönder
-    }
-</script>

@@ -14,7 +14,7 @@ namespace MyAcademyCarBook.PresentationLayer.ViewComponents.DefaultComponents
 
         public IViewComponentResult Invoke()
         {
-            var values=_carService.TGetListAll();
+            var values=_carService.TGetLast5Cars();
             return View(values);
         }
     }

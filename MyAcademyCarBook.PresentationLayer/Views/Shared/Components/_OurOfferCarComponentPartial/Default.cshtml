@@ -20,10 +20,12 @@
                     @foreach(var item in Model)
                     {
                     <div class="item-1">
-                        <a href="#"><img src="@item.ImageUrl" alt="Image" class="img-fluid"></a>
+                            <a href="#"><img src="@item.ImageUrl" alt="Image" class="img-fluid"></a>
                         <div class="item-1-contents">
                             <div class="text-center">
-                                <h3><a href="#">@item.Model</a></h3>
+                                    <h3><a href="#">@item.Model</a></h3>
+
+
                                 <div class="rating">
                                     <span class="icon-star text-warning"></span>
                                     <span class="icon-star text-warning"></span>
@@ -31,6 +33,8 @@
                                     <span class="icon-star text-warning"></span>
                                     <span class="icon-star text-warning"></span>
                                 </div>
+
+
                                 <div class="rent-price"><span>@item.RentPrice/</span>gün</div>
                             </div>
                             <ul class="specs">
@@ -58,11 +62,11 @@
                     </div>
 
                     }
-                 
-
+                
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+﻿

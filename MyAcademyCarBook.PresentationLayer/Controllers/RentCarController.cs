@@ -22,9 +22,10 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
                 var data = JsonSerializer.Deserialize<List<Car>>(cars.ToString());
                 return View(data);
             }
+            ViewBag.title1 = "Araç Kiralama";
+            ViewBag.title2 = "Her Bütçeye Uygun Araçlar ve Ödeme Kolaylığıyla Hizmetinizdeyiz";
 
-
-            var values = _carService.TGetListAll();
+            var values = _carService.TGetAllCarsWithBrands();
 
             return View(values);
 

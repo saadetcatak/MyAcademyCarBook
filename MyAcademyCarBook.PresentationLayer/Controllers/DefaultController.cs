@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyAcademyCarBook.BusinessLayer.Abstract;
 using MyAcademyCarBook.EntityLayer.Concrete;
+using MyAcademyCarBook.PresentationLayer.Models;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace MyAcademyCarBook.PresentationLayer.Controllers
@@ -17,17 +19,15 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
         public IActionResult Index()
         {
-            var cars = _carService.TGetListAll();
-
-            IEnumerable<SelectListItem> models = (from x in cars
+            var cars = _carService.TGetAllCarsWithBrands();
+            var brandList = cars.Select(x => x.Brand.BrandName).Distinct().ToList();
+            IEnumerable<SelectListItem> models = (from x in brandList
                                                   select new SelectListItem
                                                   {
-                                                      Text = x.CarName,
-                                                      Value = x.CarName,
-
+                                                      Text = x,
+                                                      Value = x
                                                   }).ToList();
-
-            ViewBag.cars = models;
+           ViewBag.cars = models;
             var gasList = cars.Select(x => x.GasType).Distinct().ToList();
             IEnumerable<SelectListItem> gasTypes = (from x in gasList
                                                     select new SelectListItem
@@ -55,18 +55,15 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         [HttpGet]
         public PartialViewResult FilterCars()
         {
-            var cars = _carService.TGetListAll();
-
-            IEnumerable<SelectListItem> models = (from x in cars
+            var cars = _carService.TGetAllCarsWithBrands();
+            var brandList = cars.Select(x => x.Brand.BrandName).Distinct().ToList();
+            IEnumerable<SelectListItem> models = (from x in brandList
                                                   select new SelectListItem
                                                   {
-                                                      Text = x.CarName,
-                                                      Value = x.CarName,
-
+                                                      Text = x,
+                                                      Value = x
                                                   }).ToList();
-
             ViewBag.cars = models;
-
             var gasList = cars.Select(x => x.GasType).Distinct().ToList();
             IEnumerable<SelectListItem> gasTypes = (from x in gasList
                                                     select new SelectListItem
@@ -92,36 +89,26 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult FilterCars(Car car)
+        public IActionResult FilterCars(CarViewModel car)
         {
-            ViewData["model"] = car.CarName;
+            ViewData["model"] = car.Brand;
             ViewData["year"] = car.Year;
             ViewData["gasType"] = car.GasType;
             ViewData["geatType"] = car.GeatType;
 
+            var values = _carService.TGetAllCarsWithBrands();
 
-            var values = _carService.TGetListAll();
-
-
-
-
-            if (!string.IsNullOrEmpty(car.CarName) || car.Year != null || !string.IsNullOrEmpty(car.GasType) || !string.IsNullOrEmpty(car.GeatType))
+            if (!string.IsNullOrEmpty(car.Brand) || car.Year != null || !string.IsNullOrEmpty(car.GasType) || !string.IsNullOrEmpty(car.GeatType))
             {
-
-
-                var lowerCaseModel = car.CarName.ToLower();
+                var lowerCaseModel = car.Brand.ToLower();
                 var lowerCaseGasType = car.GasType.ToLower();
                 var lowerCaseGearType = car.GeatType.ToLower();
-                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year >= car.Year && x.GasType.ToLower() == lowerCaseGasType && x.GeatType.ToLower() == lowerCaseGearType).ToList();
-
+                values = values.Where(x => x.Brand.BrandName.ToLower().Contains(lowerCaseModel) && x.Year >= car.Year && x.GasType.ToLower() == lowerCaseGasType && x.GeatType.ToLower() == lowerCaseGearType).ToList();
 
                 TempData["filteredCars"] = JsonSerializer.Serialize(values);
+                TempData["brandName"] = car.Brand;
+
                 return RedirectToAction("Index", "RentCar");
-
-
-
-
-
             }
 
             return RedirectToAction("Index");
@@ -131,13 +118,4 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
 
 
-        //public IActionResult CarListFilter(string Model,string GeatType,int Year,string BrandName)
-        //{
-        //    var cars = _carService.TGetCarByFilters(Model, GeatType, Year, BrandName);
-        //    ViewBag.Model = Model;
-        //    ViewBag.GeatType= GeatType;
-        //    ViewBag.BrandName= BrandName;
-        //    ViewBag.Year = Year;
-        //    return View(cars);
-        //}
-    
+       

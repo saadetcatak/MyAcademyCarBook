@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace MyAcademyCarBook.EntityLayer.Concrete
 {
@@ -12,9 +7,11 @@ namespace MyAcademyCarBook.EntityLayer.Concrete
         public int CarID { get; set; }
         public string Model { get; set; }
         public int CarCategoryID { get; set; }
+        [JsonIgnore]
         public CarCategory CarCategory { get; set; }
         public string CarName { get; set; }
         public int BrandID { get; set; }
+        [JsonIgnore]
         public Brand Brand { get; set; }
         public string ImageUrl { get; set; }
         public string GeatType { get; set; }
@@ -25,6 +22,7 @@ namespace MyAcademyCarBook.EntityLayer.Concrete
         public bool Status { get; set; }
         public decimal RentPrice { get; set; }
         public int CarStatusID { get; set; }
+        [JsonIgnore]
         public CarStatus CarStatus { get; set; }
         public List<Price> Prices { get; set; }
         public List<CarDetail> CarDetails { get; set; }

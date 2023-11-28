@@ -1,4 +1,5 @@
-﻿using MyAcademyCarBook.EntityLayer.Concrete;
+﻿using MyAcademyCarBook.DtoLayer.CarCategoryDto;
+using MyAcademyCarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
     public interface ICarService:IGenericService<Car>
     {
         List<Car> TGetAllCarsWithBrands();
-        IEnumerable<Car> TGetCarByFilters(string Model, string GeatType, int Year, string BrandName);
+        List<Car> TGetLast5Cars();
+        public List<CarCategoryDto> TGetCategoryCount();
     }
 }

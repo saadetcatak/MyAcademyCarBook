@@ -9,5 +9,6 @@ namespace MyAcademyCarBook.BusinessLayer.Abstract
 {
    public interface IServiceService:IGenericService<Service>
     {
+        List<Service> TGetLast3Services();
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MyAcademyCarBook.BusinessLayer.Abstract;
+using MyAcademyCarBook.DataAccessLayer.Concrete;
 using MyAcademyCarBook.EntityLayer.Concrete;
 using X.PagedList;
 
@@ -33,7 +35,6 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
             ViewBag.title1 = "Araç Listesi";
             ViewBag.title2 = "Sizin İçin Araç Listemiz";
             var result = _carService.TGetAllCarsWithBrands();
-
             var values = result.ToPagedList(page, 3);
             return View(values);
         
@@ -41,11 +42,11 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
 
         public IActionResult CarDetail(int id)
         {
-            ViewBag.title1 = "Araç Detayları";
+            var context = new CarBookContext();
+            ViewBag.title1 = "Araba Detayları";
             ViewBag.title2 = "Son Araç Detayları";
-            ViewBag.i = id;
-            var value=_carDetailService.TGetCarDetailByCarID(id);
-            ViewBag.v = value.Description;
+            ViewBag.id = id;
+            
             return View();
         }
         public PartialViewResult MakeComment(int id)

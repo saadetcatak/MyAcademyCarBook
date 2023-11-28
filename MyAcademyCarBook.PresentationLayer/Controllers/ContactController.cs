@@ -37,7 +37,7 @@ namespace MyAcademyCarBook.PresentationLayer.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("SendMessage");
+            return RedirectToAction("Index");
         }
     }
 }

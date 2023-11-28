@@ -1,4 +1,4 @@
-﻿@using X.PagedList;
+﻿﻿@using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @model IPagedList<Car>
 
@@ -55,19 +55,23 @@
                 </div>
 
             }
-
-
-            <div class="row mt-5">
-                <div class="col text-center">
-                    <div class="block-27 text-center">
-                        <div class="text-center">
-                            @Html.PagedListPager((IPagedList)Model,page=>Url.Action("CarList",new {page}))
-                        </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27 text-center">
+                    <div class="text-center">
+                        <span style="color:orangered; border-top-style" >
+                        @Html.PagedListPager((IPagedList)Model,page=>Url.Action("CarList",new {page}))
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
+
 @await Component.InvokeAsync("_HowItWorksStepComponentPartial")
+
+

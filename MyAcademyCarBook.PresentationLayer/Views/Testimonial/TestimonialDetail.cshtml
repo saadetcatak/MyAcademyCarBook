@@ -1,0 +1,42 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "TestimonialDetail";
+    Layout = "~/Views/Adminlayout/Index.cshtml";
+}
+
+
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Referans Yorumu</h3>
+      
+        <div class="card-tools">            
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <ul class="users-list clearfix">
+            <li>
+                <img src="@Model.Image" style="display:block; margin:auto;height:250px;width:250px;border-radius:50%" />
+                <a class="users-list-name" href="#">@Model.Name</a>              
+            </li>           
+        </ul>
+
+        <div class="form-floating mb-3">
+            <label for="floatingInput">Yorum</label>
+            <textarea type="text" asp-for="Comment" class="form-control" rows="5"> </textarea>
+          
+        </div>
+       
+    </div>
+   
+</div>

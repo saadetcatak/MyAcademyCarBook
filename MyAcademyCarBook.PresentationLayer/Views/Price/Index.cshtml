@@ -1,8 +1,29 @@
 ﻿@model List<Price>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Adminlayout/Index.cshtml";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
 }
+
+
+<html>
+<head>
+    <style>
+       
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid groove;
+        }
+
+        tr:nth-child(even) 
+        {
+            background-color: floralwhite;
+        }
+        
+    </style>
+</head>
+<body>
 
 <h1>Araç Ödeme Planları</h1>
 <table class="table table-bordered">
@@ -16,15 +37,18 @@
     </tr>
     @foreach(var item in Model)
     {
-        <tr>
+         <tr>
             <td>@item.PriceID</td>
             <td>@item.Car.Brand.BrandName @item.Car.Model</td>
             <td>@item.PriceType</td>
             <td>@item.PriceValue</td>
-            <td><a href="/Price/DeletePrice/@item.PriceID" class="btn btn-outline-danger">Sil<a/></td>
-            <td><a href="/Price/UpdatePrice/@item.PriceID" class="btn btn-outline-success">Güncelle<a/></td>
+            <td><a href="/Price/DeletePrice/@item.PriceID" class="btn btn-outline-danger"><i class="fa fa-trash me-2"></i>Sil</a></td>
+            <td><a href="/Price/UpdatePrice/@item.PriceID" class="btn btn-outline-success"><i class="fa fa-pencil-alt me-2"></i>Güncelle</a></td>
         </tr>
     }
 </table>
 
-<a href="/Price/CreatePrice/" class="btn btn-outline-primary">Yeni Araç Ödeme Girişi</a>
+    <a href="/Price/CreatePrice/" class="btn btn-outline-primary">Yeni Araç Ödeme Girişi</a>
+
+</body>
+</html>

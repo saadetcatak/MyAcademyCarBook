@@ -52,6 +52,7 @@
                         <div class="form-group">
                             <input type="submit" class="form-submit" value="Kayıt Ol" />
                         </div>
+                       
 
                         <div class="text-danger" asp-validation-summary="ModelOnly">
 
@@ -60,7 +61,7 @@
                         
                     </form>
                     <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                        Giriş Yapmak İster Misin ? <a asp-action="Index" asp-controller="Login" class="btn btn-danger">Giriş Yap</a>
                     </p>
                 </div>
             </div>

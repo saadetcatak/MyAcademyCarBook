@@ -1,66 +1,238 @@
-﻿@{
+﻿﻿
+@{
     Layout = null;
 }
 
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Book Car Admin</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Admin Paneli</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/AdminLTE/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    @*<style>
+    .validation-summary-errors {
+    border: 2px solid red;
+    color: red;
+    font-weight: bold;
+    margin: 6px;
+    width: 30%;
+    }
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/sidebar-09/css/style.css">
+    .field-validation-error {
+    color: red;
+    font-weight: bold;
+    background-color: white;
+    }
+
+    .input-validation-error {
+    color: red;
+    font-weight: bold;
+    background-color: azure;
+    }
+    </style>*@
 </head>
-<body>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
 
-    <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                </button>
-            </div>
-            <div class="img bg-wrap text-center py-4" style="background-image: url(/sidebar-09/images/bg_1.jpg);">
-                <div class="user-logo">
-                    <div class="img" style="background-image: url(/sidebar-09/images/logo.jpg);"></div>
-                    <h3>Catriona Henderson</h3>
+            <a href="index3.html" class="brand-link">
+
+                <span class="brand-text font-weight-light">CarBook Admin</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/AdminLTE/saadet.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Saadet Çatak Akgüneş</a>
+                    </div>
                 </div>
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+
+                        <li class="nav-item has-treeview">
+                            <a href="/AdminCategory/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Kategoriler
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Heading/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Başlıklar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Content/GetAllContent/" class="nav-link">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>
+                                    Yazılar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Writer/Index/" " class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Yazarlar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Grafikler
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Chart/Index/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 1</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 2</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Grafik 3</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/About/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    Hakkımızda
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Heading/HeadingReport/" class="nav-link">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>
+                                    Raporlar
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="/Contact/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    İletişim & Mesajlar
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Authorization/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-calendar-alt"></i>
+                                <p>
+                                    Yetkilendirmeler
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Gallery/Index/" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Galeri
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="/Home/HomePage/" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Siteye Git
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="/Login/LogOut/" class="nav-link">
+                                <i class="nav-icon fas fa-apple-alt"></i>
+                                <p>
+                                    Çıkış yap
+                                </p>
+                            </a>
+
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
-            <ul class="list-unstyled components mb-5">
-                <li>
-                    <a href="#"><span class="fa fa-home mr-3"></span>Dashboard</a>
-                </li>
-                <li>
-                    <a href="/Car/Index/"><span class="fa fa-car mr-3"></span>Arabalar</a>
-                </li>
-                <li>
-                    <a href="/Car/Index2/"><span class="fa fa-bus mr-3"></span>Arabalar & Markalar</a>
-                </li>
-                <li>
-                    <a href="/Brand/Index/"><span class="fa fa-gift mr-3"></span>Markalar</a>
-                </li>
-                <li>
-                    <a href="/CarStatus/Index/"><span class="fa fa-cloud mr-3"></span>Araba Durumu</a>
-                </li>
-                <li>
-                    <a href="/Price/Index/"><span class="fa fa-money mr-3"></span>Araç Fiaytları</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-            @RenderBody()
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content">
+                @RenderBody()
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
     </div>
-
-    <script src="~/sidebar-09/js/jquery.min.js"></script>
-    <script src="~/sidebar-09/js/popper.js"></script>
-    <script src="~/sidebar-09/js/bootstrap.min.js"></script>
-    <script src="~/sidebar-09/js/main.js"></script>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/AdminLTE/dist/js/adminlte.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="~/AdminLTE/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/AdminLTE/dist/js/demo.js"></script>
+    <script src="~/AdminLTE/dist/js/pages/dashboard3.js"></script>
 </body>
 </html>

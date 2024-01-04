@@ -1,0 +1,27 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Views/Adminlayout/Index.cshtml";
+}
+
+<form method="post">
+
+    <br />
+    <div class="form-floating mb-3">
+        <label for="floatingInput">Ad Soyad</label>
+        <input type="text" asp-for="Name" class="form-control" id="floatingInput" placeholder="Ad Soyad" required />
+    </div>
+    <div class="form-floating mb-3">
+        <label for="floatingInput">Görsel URL</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" id="floatingInput" placeholder="Görsel URL" required />
+    </div>
+    <div class="form-floating mb-3">
+        <label for="floatingInput">Ünvan</label>
+        <input type="text" asp-for="Title" class="form-control" id="floatingInput" placeholder="Ünvan" required />
+    </div>
+    <div class="mb-3">
+        <label for="floatingDescription">Açıklama</label>
+        <textarea type="text" asp-for="Description" class="form-control" id="floatingDescription" placeholder="Yorumu Yazınız" rows="10" required> </textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

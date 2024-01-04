@@ -48,6 +48,7 @@
     <None Include="wwwroot\colorlib-regform-8\__MACOSX\colorlib-regform-8\.sass-cache\7643c8aa2e335ff5e104bc47d8dd7f1a0693bb39\._variables.scssc" />
     <None Include="wwwroot\colorlib-regform-8\__MACOSX\colorlib-regform-8\.sass-cache\f49285f1317a1cafa93ab4f5de346f92bbc40d58\._main.scssc" />
     <None Include="wwwroot\colorlib-regform-8\__MACOSX\colorlib-regform-8\.sass-cache\f49285f1317a1cafa93ab4f5de346f92bbc40d58\._responsive.scssc" />
+    <None Include="wwwroot\PurpleAdmin\.DS_Store" />
   </ItemGroup>
 
   <ItemGroup>
